@@ -1,0 +1,46 @@
+body {
+  background-image: url(https://literaturaemartes.files.wordpress.com/2015/07/qualyms-fundo-azul-bolinhas.jpg);
+  margin: 0;
+  background-size: cover;
+}
+
+#content {
+  width: 80%;
+  margin: auto;
+}
+a {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgb(98, 119, 212);
+  margin-bottom: 5px;
+  margin-left:  5px;
+  border-radius: 20%;
+  overflow: hidden;
+  background-color: whitesmoke;
+}
+a img {
+  width: 200px;
+  height: 200px;
+}
+
+footer {
+  height: 30px;
+  background-color: #6995e6;
+}
+
+h2 {
+  color: white;
+  font-family: sans-serif;
+}
+
+header {
+  height: 180px;
+  background-color: steelblue;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  font-family: 'Lobster', cursive;
+  border-bottom: 30px solid #6995e6;
+  font-size: 40px;
+}
