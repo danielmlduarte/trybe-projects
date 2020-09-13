@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+  <title>Arte com Pixels</title>
+</head>
+<body>
+  <h1 id="title">Paleta de Cores</h1>
+  <div id="color-palette">
+    <div id="color-1" class="color color-black selected"></div>
+    <div id="color-2" class="color color-div-2"></div>
+    <div id="color-3" class="color color-div-3"></div>
+    <div id="color-4" class="color color-div-4"></div>
+  </div>
+  <div class="buttons-content">
+    <label for="board-size">Escolha um tamanho entre 5 e 50</label>
+    <div>
+      <input id="board-size" type="number" min="1">
+      <button id="generate-board">VQV</button>
+    </div>
+    <button id="clear-board">Limpar</button>
+  </div>
+  <section class="pixel-section">
+    <table id="pixel-board">
+      <tr class="pixel-line">
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+      </tr>
+      <tr class="pixel-line">
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+      </tr>
+      <tr class="pixel-line">
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+      </tr>
+      <tr class="pixel-line">
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+      </tr>
+      <tr class="pixel-line">
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+        <td class="pixel"></td>
+      </tr>
+    </table>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>

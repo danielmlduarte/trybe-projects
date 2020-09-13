@@ -1,0 +1,37 @@
+body {
+  text-align: center;
+}
+
+.color {
+  border: 1px solid black;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+
+.color-black {
+  background-color: black;
+}
+
+.color-div-2 {
+  background-color: blue;
+}
+
+.color-div-3 {
+  background-color: blue;
+}
+
+.color-div-4 {
+  background-color: blue;
+}
+
+td {
+  background-color: white;
+  border: 1px solid black;
+  height: 40px;
+  width: 40px;
+}
+
+table {
+  margin: auto;
+}
