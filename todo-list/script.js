@@ -12,7 +12,9 @@ function removeOldSelected() {
   const oldSelected = document.querySelector('#selected');
   if (oldSelected != null) {
     oldSelected.id = '';
-    oldSelected.style.backgroundColor = 'white';
+    //oldSelected.style.backgroundColor = '';
+    oldSelected.style.border = ''
+    oldSelected.style.boxShadow = '';
   }
 }
 
@@ -22,6 +24,23 @@ function saveList(listElements) {
     const elemPos = listElements[index];
     const elementDate = { className: elemPos.className, innerText: elemPos.innerText };
     localStorage.setItem(`item${index}`, JSON.stringify(elementDate));
+  }
+}
+
+function addItem() {
+  if (todoList.children.length < 26) {
+    const liElement = document.createElement('li');
+    if (textInput.value === '') {
+      liElement.innerText = 'nenhuma tarefa definida'
+      liElement.style.fontStyle = 'italic';
+      liElement.className = 'completed';
+    } else {
+      liElement.innerText = textInput.value.toUpperCase();
+    }
+    todoList.appendChild(liElement);
+    textInput.value = '';
+  } else {
+    alert('Lista Cheia! Finalize ao menos uma tarefa antes de incluir mais uma, né meu filho!?')
   }
 }
 
@@ -37,16 +56,15 @@ function loadList() {
 
 
 buttonMake.addEventListener('click', function () {
-  const liElement = document.createElement('li');
-  liElement.innerText = textInput.value;
-  todoList.appendChild(liElement);
-  textInput.value = '';
+  addItem();
 });
 
 todoList.addEventListener('click', function (event) {
   if (event.target.tagName === 'LI') {
     removeOldSelected();
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    //event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.style.border = '1px solid black'
+    event.target.style.boxShadow = '5px 5px 5px black';
     event.target.id = 'selected';
   }
 });
@@ -105,5 +123,13 @@ buttonEraseSelected.addEventListener('click', function () {
     elementToRemove.remove();
   }
 });
+
+textInput.addEventListener('keyup', function (event) {
+  if (event.keyCode === 13) {
+    addItem();
+  }
+})
+
+textInput.addEventListener('click', removeOldSelected);
 
 window.onload = loadList;
