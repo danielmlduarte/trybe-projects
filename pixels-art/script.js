@@ -6,7 +6,7 @@ const colorPalette = document.querySelector('#color-palette');
 const btnClear = document.querySelector('#clear-board');
 const btnVqv = document.querySelector('#generate-board');
 const inputBoardSize = document.querySelector('#board-size');
-const tableElement = document.querySelector('#pixel-board');
+const tableElement = document.querySelector('.pixel-section');
 
 let selectedColor = 'black';
 
@@ -26,13 +26,13 @@ function removeSelectedClass(stringClass) {
 
 function createTable(nValue) {
   tableElement.removeChild(tableElement.children[0]);
-  const tableBody = document.createElement('tbody');
+  const tableBody = document.createElement('div');
   tableElement.appendChild(tableBody);
   for (let i = 0; i < nValue; i += 1) {
-    const tableRow = document.createElement('tr');
+    const tableRow = document.createElement('div');
     tableRow.className = ('pixel-line');
     for (let j = 0; j < nValue; j += 1) {
-      const tableCell = document.createElement('td');
+      const tableCell = document.createElement('div');
       tableCell.className = 'pixel';
       tableCell.style.backgroundColor = 'white';
       tableRow.appendChild(tableCell);
