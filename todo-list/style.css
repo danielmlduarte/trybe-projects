@@ -3,11 +3,31 @@ body {
 }
 
 ol {
-  margin: auto;
   text-align: left;
-  width: 30%;
+  width: 90%;
+}
+
+.list-container {
+  line-height: 25px;
+  margin-left: 15%;
+  padding-top: 10%;
+  position: relative;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+.area-lista img {
+  box-shadow: 15px 15px 15px black;
+  margin: auto;
+  position: absolute;
+}
+
+.area-lista {
+  height: 760px;
+  margin: auto;
+  padding-top: 20px;
+  text-align: left;
+  width: 564px;
 }

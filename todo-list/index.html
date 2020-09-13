@@ -8,13 +8,18 @@
 </head>
 <body>
   <header>
-    <h1>Minha Lista de Tarefas <img src="" alt="" width="50px"></h1>
+    <h1>Minha Lista de Tarefas <img src="imgs/visto.jpeg" alt="" width="50px"></h1>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
   <div>
     <input type="text" id="texto-tarefa">
     <button id="criar-tarefa" type="submit">ADICIONAR TAREFA</button>
-    <ol id="lista-tarefas">
+    <div class="area-lista">
+      <img src="imgs/caderno.png" alt="">
+      <div class="list-container">
+        <ol id="lista-tarefas"></ol>
+      </div>
+    </div>
     </ol>
   </div>
   <div>
