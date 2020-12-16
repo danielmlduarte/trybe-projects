@@ -1,0 +1,50 @@
+.card-container {
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  height: 300px;
+  margin-top: 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card-freeshipping-tag {
+  position: absolute;
+  color: red;
+  transform: rotate(30deg);
+}
+
+.card-header {
+  height: 49%;
+}
+
+.card-main {
+  height: 29%;
+}
+
+.card-footer {
+  height: 19%;
+  margin: auto;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 10px;
+}
+
+.card-image {
+  text-align: center;
+}
+
+.cart-button-cart {
+  font-size: 10px;
+  width: 200px;
+}
+
+.card-button-details {
+  height: 20px;
+}
