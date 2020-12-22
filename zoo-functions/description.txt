@@ -1,0 +1,3 @@
+JavaScript ES7
+2 dias
+Implementar várias funções para atender aos requisitos propostos e garantir que todas as funções passem nos testes unitários.
