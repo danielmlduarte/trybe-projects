@@ -28,10 +28,6 @@ Outra diferença importante neste projeto em relação aos anteriores é que os 
 
 ## Requisitos do projeto
 
-**ATENÇÃO!** Muito cuidado com os nomes especificados nos requisitos! O conteúdo deve ser **exatamente igual** ao texto descrito no requisito. Em alguns componentes foram colocadas propriedades chamadas _data-testid_ que, sob qualquer hipótese não devem ser alteradas. Os detalhes acima tem implicação direta no funcionamento do avaliador.
-
-Os testes foram desenvolvidos dessa forma para permitir uma maior liberdade para estruturar e estilizar a página, portanto, abusem da criatividade! 😉
-
 ---
 
 ### 1 - Rotas: O componente `App` deve renderizar `BrowserRouter`
