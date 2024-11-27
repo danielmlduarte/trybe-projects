@@ -28,7 +28,7 @@ function saveList(listElements) {
 }
 
 function addItem() {
-  if (todoList.children.length < 26) {
+  if (todoList.children.length < 78) {
     const liElement = document.createElement('li');
     if (textInput.value === '') {
       liElement.innerText = 'nenhuma tarefa definida'
