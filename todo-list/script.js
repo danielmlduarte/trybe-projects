@@ -3,10 +3,12 @@ const buttonMake = document.querySelector('#criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
 const buttonClear = document.querySelector('#apaga-tudo');
 const buttonEraseCompleted = document.querySelector('#remover-finalizados');
-const buttonSaveList = document.querySelector('#salvar-tarefas');
+const buttonEditSelected = document.querySelector('#editar-tarefa');
 const buttonMoveUp = document.querySelector('#mover-cima');
 const buttonMoveDown = document.querySelector('#mover-baixo');
 const buttonEraseSelected = document.querySelector('#remover-selecionado');
+let editMode = false;
+let elementToEdit = "";
 
 function removeOldSelected() {
   const oldSelected = document.querySelector('#selected');
@@ -18,7 +20,8 @@ function removeOldSelected() {
   }
 }
 
-function saveList(listElements) {
+function saveList() {
+  const listElements = todoList.children;
   localStorage.clear();
   for (let index = 0; index < listElements.length; index += 1) {
     const elemPos = listElements[index];
@@ -28,20 +31,28 @@ function saveList(listElements) {
 }
 
 function addItem() {
-  if (todoList.children.length < 78) {
-    const liElement = document.createElement('li');
-    if (textInput.value === '') {
-      liElement.innerText = 'nenhuma tarefa definida'
-      liElement.style.fontStyle = 'italic';
-      liElement.className = 'completed';
-    } else {
-      liElement.innerText = textInput.value.toUpperCase();
-    }
-    todoList.appendChild(liElement);
-    textInput.value = '';
-  } else {
-    alert('Lista Cheia! Finalize ao menos uma tarefa antes de incluir mais uma, né meu filho!?')
-  }
+  const liElement = document.createElement('li');
+	if (!editMode) {		
+		if (todoList.children.length < 78) {
+			if (textInput.value === '') {
+				liElement.innerText = 'nenhuma tarefa definida'
+				liElement.style.fontStyle = 'italic';
+				liElement.className = 'completed';
+			} else {
+				liElement.innerText = textInput.value.toUpperCase();
+			}
+			todoList.appendChild(liElement);
+			textInput.value = '';
+
+		} else {
+			alert('Lista Cheia! Finalize ao menos uma tarefa antes de incluir mais uma, né meu filho!?')
+		}
+	} else {
+		editMode = false;
+		elementToEdit.innerText = textInput.value.toUpperCase();
+	}
+	textInput.focus();
+	saveList()
 }
 
 function loadList() {
@@ -83,6 +94,7 @@ buttonClear.addEventListener('click', function () {
   for (let index = (todoList.children.length - 1); index >= 0; index -= 1) {
     todoList.removeChild(todoList.children[index]);
   }
+	saveList()
 });
 
 buttonEraseCompleted.addEventListener('click', function () {
@@ -91,10 +103,13 @@ buttonEraseCompleted.addEventListener('click', function () {
       todoList.removeChild(todoList.children[index]);
     }
   }
+	saveList()
 });
 
-buttonSaveList.addEventListener('click', function () {
-  saveList(todoList.children);
+buttonEditSelected.addEventListener('click', function () {
+	elementToEdit = document.getElementById('selected');
+	textInput.value = elementToEdit.innerText;
+	editMode = true;
 });
 
 buttonMoveUp.addEventListener('click', function () {
@@ -105,6 +120,7 @@ buttonMoveUp.addEventListener('click', function () {
       previousElement.before(elementToMoveUp);
     }
   }
+	saveList()
 });
 
 buttonMoveDown.addEventListener('click', function () {
@@ -115,6 +131,7 @@ buttonMoveDown.addEventListener('click', function () {
       previousElement.after(elementToMoveDown);
     }
   }
+	saveList()
 });
 
 buttonEraseSelected.addEventListener('click', function () {
@@ -122,6 +139,7 @@ buttonEraseSelected.addEventListener('click', function () {
   if (elementToRemove != null) {
     elementToRemove.remove();
   }
+	saveList()
 });
 
 textInput.addEventListener('keyup', function (event) {
