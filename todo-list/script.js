@@ -7,8 +7,11 @@ const buttonEditSelected = document.querySelector('#editar-tarefa');
 const buttonMoveUp = document.querySelector('#mover-cima');
 const buttonMoveDown = document.querySelector('#mover-baixo');
 const buttonEraseSelected = document.querySelector('#remover-selecionado');
+const tooltip = document.querySelector('#tooltip');
+const tooltipText = document.querySelector('#tooltip-text');
 let editMode = false;
 let elementToEdit = "";
+let myTimeout = ""
 
 function removeOldSelected() {
   const oldSelected = document.querySelector('#selected');
@@ -65,6 +68,15 @@ function loadList() {
   }
 }
 
+function showTooltip() {
+	tooltip.classList.add("show")
+	myTimeout = setTimeout(hideTooltip, 5000);
+}
+
+function hideTooltip() {
+	tooltip.classList.remove("show")
+	clearTimeout(myTimeout);
+}
 
 buttonMake.addEventListener('click', function () {
   addItem();
@@ -140,6 +152,8 @@ buttonEraseSelected.addEventListener('click', function () {
     elementToRemove.remove();
   }
 	saveList()
+	tooltipText.innerText = "Item removido!"
+	showTooltip()
 });
 
 textInput.addEventListener('keyup', function (event) {
