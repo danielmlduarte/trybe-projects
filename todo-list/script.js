@@ -70,7 +70,7 @@ function loadList() {
 
 function showTooltip() {
 	tooltip.classList.add("show")
-	myTimeout = setTimeout(hideTooltip, 5000);
+	myTimeout = setTimeout(hideTooltip, 3000);
 }
 
 function hideTooltip() {
